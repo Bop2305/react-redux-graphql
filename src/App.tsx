@@ -1,11 +1,12 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Page404 from "./pages/Page404";
 import routes from "./routes";
+import Layout from "./components/Layout";
 
 function App() {
   const router = createBrowserRouter([
     {
-      element: <div><Outlet /></div>,
+      element: <Layout />,
       errorElement: <Page404 />,
       children: routes,
     },
