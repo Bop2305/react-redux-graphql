@@ -10,9 +10,12 @@ const Counter: React.FC<{
   return (
     <div>
       <h1>Counter</h1>
-      <div>{value}</div>
-      <button onClick={() => onIncrease()}>Increase</button>
-      <button onClick={() => onDecrease()}>Decrease</button>
+      <div style={{ display: "flex" }}>
+        {" "}
+        <button onClick={() => onIncrease()}>+</button>
+        <div style={{ padding: "0px 10px" }}>{value}</div>
+        <button onClick={() => onDecrease()}>-</button>
+      </div>
     </div>
   );
 };
