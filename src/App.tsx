@@ -1,28 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Counter from './components/Counter';
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Page404 from "./pages/Page404";
+import routes from "./routes";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Counter />
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      element: <div><Outlet /></div>,
+      errorElement: <Page404 />,
+      children: routes,
+    },
+  ]);
+
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
