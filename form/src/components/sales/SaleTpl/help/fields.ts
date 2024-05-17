@@ -1,0 +1,36 @@
+const fields = {
+  typeFlow: "typeFlow",
+  vehicleUsing: "vehicleUsing",
+  vehicleType: "vehicleType",
+  refSpecs: "refSpecs",
+  vehicleSeatCount: "vehicleSeatCount",
+  vehicleWeight: "vehicleWeight",
+  vehicleRegister: "vehicleRegister",
+  vehiclePlateNo: "vehiclePlateNo",
+  vehicleEngineNo: "vehicleEngineNo",
+  vehicleChassisNo: "vehicleChassisNo",
+  durations: "durations",
+  effectiveDate: "effectiveDate",
+  expireDate: "expireDate",
+  pkgCode: "pkgCode",
+  ownerName: "ownerName",
+  ownerPhone: "ownerPhone",
+  ownerEmail: "ownerEmail",
+  ownerAddress: "ownerAddress",
+  discountCode: "discountCode",
+  discountCodeSubmit: "discountCodeSubmit",
+  confirmed: "confirmed",
+  paymentMethod: "paymentMethod",
+
+  invoiceExport: "invoiceExport",
+  invoiceIsCompany: "invoiceIsCompany",
+  invoiceCompanyName: "invoiceCompanyName",
+  invoiceBuyerName: "invoiceBuyerName",
+  invoiceTaxCode: "invoiceTaxCode",
+  invoiceEmail: "invoiceEmail",
+  invoiceAddress: "invoiceAddress",
+
+  countClickStep: "countClickStep",
+};
+
+export default fields;
