@@ -3,7 +3,7 @@ import { AppDispatch, RootState } from "../store";
 import React from "react";
 
 const Counter: React.FC<{
-  value: string;
+  value: number;
   onIncrease: any;
   onDecrease: any;
 }> = ({ value, onIncrease, onDecrease }) => {
@@ -11,10 +11,9 @@ const Counter: React.FC<{
     <div>
       <h1>Counter</h1>
       <div style={{ display: "flex" }}>
-        {" "}
-        <button onClick={() => onIncrease()}>+</button>
-        <div style={{ padding: "0px 10px" }}>{value}</div>
         <button onClick={() => onDecrease()}>-</button>
+        <div style={{ padding: "0px 10px" }}>{value}</div>
+        <button onClick={() => onIncrease()}>+</button>
       </div>
     </div>
   );
