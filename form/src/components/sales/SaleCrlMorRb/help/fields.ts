@@ -15,6 +15,7 @@ const fields = {
   creditAmount: "creditAmount",
   paymentMethod: "paymentMethod",
   discountCode: "discountCode",
+  buyingCriteria: "buyingCriteria",
 
   invoiceExport: "invoiceExport",
   invoiceIsCompany: "invoiceIsCompany",

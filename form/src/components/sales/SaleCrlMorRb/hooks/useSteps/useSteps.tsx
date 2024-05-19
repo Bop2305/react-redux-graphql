@@ -27,12 +27,15 @@ type useStepsProps = {
   checkPriceMutation: any;
   getPaymentInfoQuery: any;
   policy: any;
+  buyingCriteriaData: any;
 };
 
 const useSteps = (props: useStepsProps) => {
   const theme = useTheme();
   const classes = useStyles();
   const matchesDownSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+  console.log('[useSteps] [buyingCriteriaData]', props.buyingCriteriaData)
 
   const getInitValues = useCallback(() => {
     const _insStartDate = props.policy?.polEffectiveDate;
@@ -56,6 +59,7 @@ const useSteps = (props: useStepsProps) => {
       [fields.insStartDate]: _insStartDate,
       [fields.insEndDate]: _insEndDate,
       [fields.insAmount]: _insAmount,
+      [fields.buyingCriteria]: props.policy?.buyingCriteria,
 
       [fields.invoiceExport]: !!props.policy?.polInvoices?.[0]?.invoiceExport,
       [fields.invoiceIsCompany]:
@@ -179,6 +183,28 @@ const useSteps = (props: useStepsProps) => {
           {
             title: "Thông tin hợp đồng",
             inputsConfig: [
+              {
+                id: fields.buyingCriteria,
+                type: "radio",
+                label: "Mua bảo hiểm theo tiêu chí",
+                validations: ["required"],
+                options: props.buyingCriteriaData?.map((it: any) => ({
+                  value: it?.value,
+                  label: it?.name,
+                })),
+                className: classes.areaFull,
+              },
+              // {
+              //   id: 'abcdefgh',
+              //   type: "select",
+              //   label: "Mua bảo hiểm theo tiêu chí",
+              //   validations: ["required"],
+              //   options: props.buyingCriteriaData?.map((it: any) => ({
+              //     value: it?.value,
+              //     label: it?.name,
+              //   })),
+              //   className: classes.areaFull,
+              // },
               {
                 id: fields.creditNo,
                 type: "text",
@@ -341,6 +367,7 @@ const useSteps = (props: useStepsProps) => {
                     custAddress={props.useFormResult?.getValues(
                       fields.custAddress
                     )}
+                    buyingCriteria={props.useFormResult?.getValues(fields.buyingCriteria)}
                     creditNo={props.useFormResult?.getValues(fields.creditNo)}
                     creditStartDate={props.useFormResult?.getValues(
                       fields.creditStartDate
@@ -568,6 +595,7 @@ const useSteps = (props: useStepsProps) => {
       props.useFormResult?.watch(fields.invoiceExport),
       props.useFormResult?.watch(fields.invoiceIsCompany),
       props.useFormResult?.watch(fields.currentStepIndex),
+      props.useFormResult?.watch(fields.buyingCriteria),
     ]
   );
 };

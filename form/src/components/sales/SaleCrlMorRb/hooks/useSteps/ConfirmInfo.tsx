@@ -36,6 +36,7 @@ type ConfirmInfoType = {
   insEndDate: string;
   insAmount: number;
   creditAmount: number;
+  buyingCriteria: string;
 };
 
 const ConfirmInfo = (props: ConfirmInfoType) => {
@@ -85,6 +86,10 @@ const ConfirmInfo = (props: ConfirmInfoType) => {
       <SummaryInfo
         title="Thông tin hợp đồng"
         rowsData={[
+          {
+            label: "Mua bảo hiểm theo tiêu chí",
+            value: props.buyingCriteria,
+          },
           {
             label: "Số hợp đồng cho vay",
             value: props.creditNo,

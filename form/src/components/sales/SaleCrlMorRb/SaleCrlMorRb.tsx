@@ -29,6 +29,7 @@ type SaleCrlMorRbProps = {
   transferEndpoint?: string;
   onTransfer?: any;
   onCreated: any;
+  getCparamsService: any;
 };
 
 const SaleCrlMorRb = (props: SaleCrlMorRbProps) => {
@@ -44,6 +45,7 @@ const SaleCrlMorRb = (props: SaleCrlMorRbProps) => {
     paymentMutation,
     policy,
     updatePolicyHandle,
+    buyingCriteriaData,
   } = useData({
     resourceCode: props.resourceCode,
     createPolicyService: props.createPolicyService,
@@ -54,18 +56,20 @@ const SaleCrlMorRb = (props: SaleCrlMorRbProps) => {
     successEndpoint: props.successEndpoint,
     currentEndpoint: props.currentEndpoint,
     polSumId: props.polSumId,
+    getCparamsService: props.getCparamsService,
   });
+  console.log('[SaleCrlMorRb] [buyingCriteriaData]', buyingCriteriaData)
   const steps = useSteps({
     useFormResult,
     checkPriceHandle,
     checkPriceMutation,
     getPaymentInfoQuery,
     policy,
+    buyingCriteriaData,
   });
 
   return (
     <div className={`${classes.wrapper} ${props.className}`}>
-      <input placeholder="Test" />
       <Stepper
         inputsWrapperClass={classes.inputsWrapperClass}
         steps={steps}

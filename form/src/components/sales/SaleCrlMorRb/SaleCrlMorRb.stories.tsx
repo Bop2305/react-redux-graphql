@@ -11,6 +11,7 @@ import getPaymentInfoService from "./services/getPaymentInfo";
 import paymentService from "./services/payment";
 import getPolicyService from "./services/getPolicy";
 import updatePolicyFuncService from "./services/updatePolicyFunc";
+import getCparamsService from "./services/getCparams";
 
 const queryClient = new QueryClient();
 
@@ -39,4 +40,5 @@ Default.args = {
   paymentService,
   getPolicyService,
   updatePolicyFuncService,
+  getCparamsService,
 };

@@ -22,6 +22,7 @@ type useDataProps = {
   successEndpoint?: string;
   currentEndpoint?: string;
   polSumId?: number;
+  getCparamsService: any;
 };
 
 const useData = (props: useDataProps) => {
@@ -201,6 +202,21 @@ const useData = (props: useDataProps) => {
     props.currentEndpoint,
   ]);
 
+  const cparamsQuery = useQuery(
+    ["getCparamsService"],
+    () => props.getCparamsService(),
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const buyingCriteriaData = useMemo(
+    () => cparamsQuery?.data?.content?.buyingCriteria,
+    [cparamsQuery?.data?.content?.buyingCriteria]
+  ); 
+
+  console.log('[useData] [buyingCriteriaData]', buyingCriteriaData)
+
   return {
     useFormResult,
     checkPriceHandle,
@@ -212,6 +228,7 @@ const useData = (props: useDataProps) => {
     paymentMutation,
     policy,
     updatePolicyHandle,
+    buyingCriteriaData,
   };
 };
 
