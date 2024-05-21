@@ -1,7 +1,8 @@
 import gql from "graphql-tag";
 import { graphqlClient as client } from "../utils/graphqlClient";
+import { People } from "./types/people";
 
-export const getAllPeople = async () => {
+export const getAllPeople = async (): Promise<People> => {
   const query = gql`
     query AllPeople {
       allPeople {
@@ -17,5 +18,5 @@ export const getAllPeople = async () => {
 
   const res = await client.query({ query });
 
-  return res.data;
+  return res.data.allPeople.people as People;
 };
