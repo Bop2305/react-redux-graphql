@@ -1,6 +1,5 @@
 import React from "react";
 import PathConstants from "./pathConstants";
-import People from "../pages/People";
 
 type Route = {
   path: string;
@@ -9,6 +8,7 @@ type Route = {
 
 const Home = React.lazy(() => import("../pages/Home"));
 const Counter = React.lazy(() => import("../pages/Counter"));
+const People = React.lazy(() => import("../pages/People"));
 
 const routes: Route[] = [
   {

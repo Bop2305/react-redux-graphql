@@ -1,22 +1,40 @@
-import { Action, Reducer } from "redux";
-import { People } from "./types/people";
+import { Dispatch } from "redux";
 import * as service from "./people.service";
 
-const GET_ALL_PEOPLE = "people/getAllPeople";
+// Action types
+const SET_ALL_PEOPLE = "people/setAllPeople";
 
-export const getAllPeople: Reducer<any, Action> = ({ state = [], action }) => {
-  console.log("[getAllPeople]");
+// Action creators
+export const setAllPeople = (allPeople: any) => {
+  return {
+    type: SET_ALL_PEOPLE,
+    payload: allPeople,
+  };
+};
+
+export const getAllPeople = () => {
+  return async (dispatch: Dispatch) => {
+    const res = await service.getAllPeople();
+    dispatch(setAllPeople(res));
+    return res
+  };
+};
+
+// Initial state
+const initState = {
+  allPeople: null,
+};
+
+// Reducer
+export default (state = initState, action: { type: string; payload: any }) => {
   switch (action.type) {
-    case GET_ALL_PEOPLE:
-      async () => {
-        const res = await service.getAllPeople();
-
-        return res;
+    case SET_ALL_PEOPLE:
+      return {
+        ...state,
+        allPeople: action.payload,
       };
 
-      break;
-
     default:
-      state;
+      return state;
   }
 };

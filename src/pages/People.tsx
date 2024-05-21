@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { getAllPeople } from "../store/people.service";
+import { RootState } from "../store";
 
-const People: React.FC = () => {
-  getAllPeople().then((res) => console.log("[People] [res]", res));
+const People: React.FC<any> = ({ allPeople }) => {
+  console.log("[People] [allPeople]", allPeople);
   return (
     <>
       <h1>People</h1>
@@ -10,4 +10,6 @@ const People: React.FC = () => {
   );
 };
 
-export default connect()(People);
+export default connect(({ people }: RootState) => {
+  return { allPeople: people.allPeople };
+})(People);
