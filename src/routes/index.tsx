@@ -1,5 +1,6 @@
 import React from "react";
 import PathConstants from "./pathConstants";
+import People from "../pages/People";
 
 type Route = {
   path: string;
@@ -17,6 +18,10 @@ const routes: Route[] = [
   {
     path: PathConstants.COUNTER,
     element: <Counter />,
+  },
+  {
+    path: PathConstants.PEOPLE,
+    element: <People />,
   },
 ];
 
