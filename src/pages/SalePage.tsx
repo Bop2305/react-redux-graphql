@@ -1,9 +1,12 @@
 import { connect } from "react-redux";
+import LayoutTabs from "../modules/layout/LayoutTabs";
 
 const SalePage: React.FC = () => {
   return (
     <>
-      <h1>SalePage</h1>
+      <LayoutTabs>
+        <h1>SalePage</h1>
+      </LayoutTabs>
     </>
   );
 };
