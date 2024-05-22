@@ -5,18 +5,17 @@ import * as service from "./people.service";
 const SET_ALL_PEOPLE = "people/setAllPeople";
 
 // Action creators
-export const setAllPeople = (allPeople: any) => {
-  return {
-    type: SET_ALL_PEOPLE,
-    payload: allPeople,
-  };
-};
+// export const setAllPeople = (allPeople: any) => {
+//   return {
+//     type: SET_ALL_PEOPLE,
+//     payload: allPeople,
+//   };
+// };
 
 export const getAllPeople = () => {
   return async (dispatch: Dispatch) => {
     const res = await service.getAllPeople();
-    dispatch(setAllPeople(res));
-    return res
+    dispatch({ type: SET_ALL_PEOPLE, payload: res });
   };
 };
 

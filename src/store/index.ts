@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import counterReducer from "./reducers/counterReducer";
-import peopleDuck, { getAllPeople } from "./people.duck";
+import peopleDuck from "./people.duck";
 import { thunk } from "redux-thunk";
 
 const rootReducer = combineReducers({
@@ -8,9 +8,7 @@ const rootReducer = combineReducers({
   people: peopleDuck,
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
-
-store.dispatch(getAllPeople())
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;

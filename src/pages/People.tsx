@@ -1,8 +1,18 @@
 import { connect } from "react-redux";
-import { RootState } from "../store";
+import { AppDispatch, RootState } from "../store";
+import { getAllPeople } from "../store/people.duck";
+import { useEffect } from "react";
 
-const People: React.FC<any> = ({ allPeople }) => {
-  console.log("[People] [allPeople]", allPeople);
+type Props = {
+  allPeople: any;
+  onGetAllPeople: () => void;
+};
+
+const People: React.FC<Props> = ({ allPeople, onGetAllPeople }) => {
+  useEffect(() => {
+    onGetAllPeople();
+  }, []);
+
   return (
     <>
       <h1>People</h1>
@@ -10,6 +20,11 @@ const People: React.FC<any> = ({ allPeople }) => {
   );
 };
 
-export default connect(({ people }: RootState) => {
-  return { allPeople: people.allPeople };
-})(People);
+export default connect(
+  ({ people }: RootState) => {
+    return { allPeople: people.allPeople };
+  },
+  (dispatch: AppDispatch) => {
+    return { onGetAllPeople: () => dispatch(getAllPeople()) };
+  }
+)(People);
