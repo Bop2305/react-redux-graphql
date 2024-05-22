@@ -3,12 +3,15 @@ import counterReducer from "./reducers/counterReducer";
 import peopleDuck from "./people.duck";
 import { thunk } from "redux-thunk";
 
-const rootReducer = combineReducers({
+const _rootReducer = {
   counter: counterReducer,
   people: peopleDuck,
-});
+};
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(
+  combineReducers(_rootReducer),
+  applyMiddleware(thunk)
+);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
