@@ -9,7 +9,13 @@ type Route = {
 const Home = React.lazy(() => import("../pages/Home"));
 const Counter = React.lazy(() => import("../pages/Counter"));
 const People = React.lazy(() => import("../pages/People"));
-const SalePage = React.lazy(() => import("../pages/SalePage"));
+const SalePage = React.lazy(() => import("../pages/sales/SalePage"));
+const SaleCRLPage = React.lazy(() => import("../pages/sales/SaleCRLPage"));
+const SaleCRLMorPage = React.lazy(() => import("../pages/sales/SaleCRLMorPage"));
+const SaleCRLPaPage = React.lazy(() => import("../pages/sales/SaleCRLPaPage"));
+const SaleTPLPage = React.lazy(() => import("../pages/sales/SaleTPLMorPage"));
+const SaleTPLMorPage = React.lazy(() => import("../pages/sales/SaleTPLMorPage"));
+const SaleTPLPaPage = React.lazy(() => import("../pages/sales/SaleTPLPaPage"));
 const ReportPage = React.lazy(() => import("../pages/ReportPage"));
 const PoliciesPage = React.lazy(() => import("../pages/PoliciesPage"));
 
@@ -29,6 +35,30 @@ const routes: Route[] = [
   {
     path: PathConstants.SALE_PAGE,
     element: <SalePage />,
+  },
+  {
+    path: PathConstants.SALE_CRL_PAGE,
+    element: <SaleCRLPage />,
+  },
+  {
+    path: PathConstants.SALE_CRL_MOR_PAGE,
+    element: <SaleCRLMorPage />,
+  },
+  {
+    path: PathConstants.SALE_CRL_PA_PAGE,
+    element: <SaleCRLPaPage />,
+  },
+  {
+    path: PathConstants.SALE_TPL_PAGE,
+    element: <SaleTPLPage />,
+  },
+  {
+    path: PathConstants.SALE_TPL_MOR_PAGE,
+    element: <SaleTPLMorPage />,
+  },
+  {
+    path: PathConstants.SALE_TPL_PA_PAGE,
+    element: <SaleTPLPaPage />,
   },
   {
     path: PathConstants.POLICIES_PAGE,

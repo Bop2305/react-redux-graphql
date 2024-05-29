@@ -4,7 +4,7 @@ import LayoutTabs from "../modules/layout/LayoutTabs";
 const PoliciesPage: React.FC = () => {
   return (
     <>
-      <LayoutTabs>
+      <LayoutTabs tabItems={[]}>
         <h1>PoliciesPage</h1>
       </LayoutTabs>
     </>
