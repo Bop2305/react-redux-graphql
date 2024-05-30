@@ -18,6 +18,8 @@ const SaleTPLMorPage = React.lazy(() => import("../pages/sales/SaleTPLMorPage"))
 const SaleTPLPaPage = React.lazy(() => import("../pages/sales/SaleTPLPaPage"));
 const ReportPage = React.lazy(() => import("../pages/ReportPage"));
 const PoliciesPage = React.lazy(() => import("../pages/PoliciesPage"));
+const DashBoard = React.lazy(() => import("../pages/DashBoard"));
+const HealthInsurance = React.lazy(() => import("../pages/HealthInsurance"));
 
 const routes: Route[] = [
   {
@@ -67,6 +69,14 @@ const routes: Route[] = [
   {
     path: PathConstants.REPORT_PAGE,
     element: <ReportPage />,
+  },
+  {
+    path: PathConstants.DASHBOARD,
+    element: <DashBoard />,
+  },
+  {
+    path: PathConstants.HEALTH,
+    element: <HealthInsurance />,
   },
 ];
 

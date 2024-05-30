@@ -19,6 +19,8 @@ const PathConstants = {
   REPORT_CRL_MOR_PAGE: "/report/crl/mor",
   REPORT_TPL_PAGE: "/report/tpl",
   REPORT_TPL_MOR_PAGE: "/report/tpl/mor",
+  DASHBOARD: "/dashboard",
+  HEALTH: "/health",
 };
 
 export default PathConstants;

@@ -6,11 +6,14 @@
 
 import { BaseTextFieldProps, Input, InputBaseProps, TextField } from "@mui/material";
 import { styled } from "@mui/styles";
+import { ErrorOption, RegisterOptions } from "react-hook-form";
 
 type Props = {
   icon?: React.ReactNode;
   label: string;
   size?: string;
+  register?: RegisterOptions;
+  errors?: Record<string, ErrorOption>;
 } & BaseTextFieldProps;
 
 const InputWrapper = styled("div")({
@@ -23,8 +26,6 @@ const InputWrapper = styled("div")({
     zIndex: 10,
   },
   "& .input": {
-    // height: "40px",
-    // border: "1px solid",
     borderRadius: "5px",
   },
   "& .iconWrapper": {
@@ -39,12 +40,14 @@ const InputSimple: React.FC<Props> = ({
   icon,
   label,
   size = "small",
+  register,
+  errors,
   ...props
 }) => {
   return (
     <InputWrapper>
       <label className="label">{label}</label>
-      <TextField className="input" size={size} fullWidth {...props} />
+      <TextField className="input" size={size} fullWidth variant="outlined" {...props} />
       <div className="iconWrapper">{icon}</div>
     </InputWrapper>
   );

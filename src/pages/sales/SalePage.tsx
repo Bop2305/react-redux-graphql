@@ -23,14 +23,13 @@ const SalePage: React.FC = () => {
       />
       <br></br>
       <SelectSimple
+        label="Giới tính"
         options={[
           { label: "Female", value: "female" },
           { label: "Male", value: "male" },
         ]}
       />
-      <br>
-        {/* <ButtonSimple label="Submit" /> */}
-      </br>
+      <br>{/* <ButtonSimple label="Submit" /> */}</br>
       <ButtonSimple label="Submit" />
     </>
   );
